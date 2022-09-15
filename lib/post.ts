@@ -13,13 +13,13 @@ export function getSortedPostsData() {
     const id = fileName.replace(/\.md$/, '');
 
     const fullPath = path.join(postsDirectory, fileName);
-    const fileContents = fs.readdirSync(fullPath, 'utf-8');
+    const fileContents = fs.readFileSync(fullPath, 'utf8')
 
     const matterResult = matter(fileContents);
 
     return {
       id,
-      ...allPostsData(matterResult.data as {date: string; title: string})
+      ...matterResult.data as {date: string; title: string}
     }
   })
 
