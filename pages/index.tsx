@@ -12,7 +12,7 @@ const Home = ({allPostsData}: {
   }[]
 }) => {
   return (
-    <div>
+    <div className={homeStyles.container}>
       <Head>
         <title>Henry</title>
       </Head>
